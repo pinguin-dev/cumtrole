@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm111mh44srkd"]
+
+[ext_resource type="PackedScene" uid="uid://dirtc7l1qnsgp" path="res://cumtrole/player.tscn" id="1_da7fw"]
+
+[node name="World" type="Node2D"]
+position = Vector2(480, 464)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.45098, 0.392157, 0.341176, 1)
+polygon = PackedVector2Array(-608, -656, 928, -656, 928, 368, -608, 368)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-160, 176, 96, 176, 96, 112, 224, 112, 224, 176, 480, 176, 608, 48, 736, 48, 736, -464, 800, -464, 800, 256, -480, 256, -480, -464, -416, -464, -416, 48, -288, 48)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(1, 0.698039, 0.847059, 1)
+polygon = PackedVector2Array(-480, -464, -416, -464, -416, 48, -288, 48, -160, 176, 96, 176, 96, 112, 224, 112, 224, 176, 480, 176, 608, 48, 736, 48, 736, -464, 800, -464, 800, 256, -480, 256)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D/Polygon2D"]
+color = Color(0.8, 0.745098, 0.709804, 1)
+polygon = PackedVector2Array(-480, -464, -416, -464, -416, 48, -288, 48, -160, 176, 96, 176, 96, 112, 224, 112, 224, 176, 480, 176, 608, 48, 736, 48, 736, -464, 800, -464, 800, 256, -480, 256)
+
+[node name="Player" parent="." instance=ExtResource("1_da7fw")]
+position = Vector2(159, 47)
